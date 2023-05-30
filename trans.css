@@ -1,0 +1,35 @@
+hgroup{
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 15px;
+    margin-right: 30px;
+    border-right: 10px solid ;
+    color: rgb(13, 13, 13);
+}
+
+.container{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    border-radius: 50px;
+    text-align: center;
+
+    transition-property: transform;
+    transition-duration: 5s;
+    /* transition-timing-function: ease-in-out; */
+    /* transition-timing-function: cubic-bezier(0.4, 0, 0, 0.86); */
+
+    /* We can directly write these in one function */
+
+    transition: width 10s linear 1s;
+}
+
+.container:hover{
+    /* transform: translate(1000px) rotate(360deg); */
+    width: 800px;
+}
+
+.p{
+    text-align: center;
+    padding: 40px 0px;
+}

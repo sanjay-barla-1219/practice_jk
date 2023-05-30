@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Real Time Example</title>
+    <style>
+        div{
+            background-color: yellow;
+            width: 500px;
+        }
+        ul li{
+            width: 150px;
+            background-color: grey;
+            list-style-type: none;
+            margin-bottom: 5px;
+        }
+        button{
+                margin-left: 20px;
+                /* background-color: cyan; */
+        }
+        .delete{
+            background-color: cyan;
+        }
+
+        button:hover{
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <form id="myform">
+            Hobbies: <input type="text" name="" id="first">
+            <input type="submit" value="ADD">
+        </form>
+    </div><br>
+    <div>
+        <input type="text" id="filter">
+    </div><br><br>
+
+    The Hobbies are:
+    <ul id="lists">
+        <li>Cricket <button class="delete">X</button></li>
+    </ul>
+</center>
+
+<script src="dom.js"></script>
+
+</body>
+</html>

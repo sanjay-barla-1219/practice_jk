@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>java script validations</title>
+    <style>
+        div{
+            background-color: yellow;
+            width: 500px;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function validate(){
+            var fn = document.getElementById('fname').value;
+            var ln = document.getElementById('lname').value;
+            var mn = document.getElementById('num').value;
+            var c1 = document.getElementById('c1').checked;
+            var c2 = document.getElementById('c2').checked;
+            var c3 = document.getElementById('c3').checked;
+            var c4 = document.getElementById('c4').checked;
+            if(fn.length<4 || ln.length<4 || mn.length!=10){
+                // alert("InValid");
+                // console.log("Validate");
+                document.getElementById('fname').style.border= '2px solid red';
+                document.getElementById('fnn').style.visibility = "visible";
+                return false;
+            }
+            // else{
+            //     // alert("valid");
+            //     // console.log("Invalid");
+            //     return true;
+            // }
+            if(c1 || c2 || c3||c4){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+            function show(){
+                var s2 = document.getElementById("sp").checked;
+                if(s2){
+                    document.getElementById("pass").type="text";
+                }
+                else{
+                    document.getElementById("pass").type="password";
+                }
+            }
+        function change(){
+            document.getElementById('i').src = "logo1.jpg";
+        }
+        function unchange(){
+            document.getElementById('i').src = "logo.png";
+        }
+
+        function display(){
+            var x = document.getElementById('fname').value = document.getElementById('fname').value.toUpperCase();
+            document.getElementById('dt').innerHTML = x;
+        }
+
+        function spp(){
+            document.getElementById('fname').style.backgroundColor = "red";
+        }
+        function blur(){
+            document.querySelector('#fname').style.backgroundColor = 'cyan';
+        }
+
+        function load(){
+            alert("Loaded Successfully!! ");
+        }
+        function resize(){
+            alert("Don't resize me!!")
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <div>
+        <form action="s.php" method="post" onsubmit=" return validate()">
+        <table>
+            <h1>Registration Form</h1>
+            <tr><td>First Name: </td><td><input type="text" name="FirstName" id="fname"></td><td><label id="fnn" style="color: red; visibility: hidden;" >Invalid Details!!</label></td></tr>
+            <tr><td>Last Name: </td><td><input type="text" name="Lastname" id="lname"></td></tr>
+            <tr><td>Mobile Number: </td><td><input type="number" name="n" id="num"></td></tr>
+            <tr><td>Branch: </td><td><input type="checkbox" name="n" id="c1">CSE
+                <input type="checkbox" name="n" id="c2">ECE
+                <input type="checkbox" name="n" id="c3">MECH
+                <input type="checkbox" name="n" id="c4">EEE</td>
+            </tr>
+
+            <tr><td>Enter Password:</td><td><input type="password" name="p" id="pass"></td><td><input type="checkbox" name="eye" id="sp" onclick="show();"> SHOW</td></tr>
+            <tr><td></td><td><input type="submit" name="s" value="Register"></td></tr>
+        </table>
+    </form>
+    </div>
+</center>
+    <img src="logo.png" id="i" onmouseover="change();" onmouseout="unchange();"  onload = "load();" >
+
+    <p id="dt">Displayed Text Is Here</p>
+    <script>
+        // var c = document.getElementById('sp');
+        // c.document.addEventListener('click',unchange);
+        // c.document.addEventListener('click',show);
+        var d = document.getElementById('fname');
+        d.addEventListener('keyup',display);
+        d.addEventListener('focus',spp)
+        addEventListener('blur',blur);
+        // window.addEventListener('resize',resize);
+    </script>
+</body>
+</html>

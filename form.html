@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Form</title>
+</head>
+<body>
+    <header id="main-header">
+        <hgroup>
+        <h1>CSE WEBSITE</h1>
+        <h3>Created By Sanjay</h3> 
+    </hgroup>
+    </header>
+    <div class="sec">
+        <form action="fill.php" class="form-tag" method="post">
+            <h1 class="main-head">Alumni Registration Form</h1>
+            <div class="row">
+                <fieldset>
+                <input type="text" class="text" placeholder="Enter your name">
+                <input type="password" class="pass" placeholder="Enter Your password">
+            </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <legend>Email</legend>
+                   <input type="email" class="email">
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset>
+                    <legend>Gender</legend>
+                   <input type="radio" class="gender">Male
+                   <input type="radio" class="gender">Female
+                   <input type="radio" class="gender">Others
+                </fieldset>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

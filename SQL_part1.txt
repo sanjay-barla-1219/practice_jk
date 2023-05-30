@@ -1,0 +1,603 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 5.5.5-10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| alumni             |
+| csefest            |
+| fac_profile        |
+| hmisphp            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| studentmsdb        |
+| test               |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> create database rgukt;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| alumni             |
+| csefest            |
+| fac_profile        |
+| hmisphp            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| rgukt              |
+| student            |
+| studentmsdb        |
+| test               |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> show rgukt;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'rgukt' at line 1
+mysql> desc rgukt;
+ERROR 1046 (3D000): No database selected
+mysql>   use rgukt;
+Database changed
+mysql> desc rgukt;
+ERROR 1146 (42S02): Table 'rgukt.rgukt' doesn't exist
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table student;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table student(sid int not null,sname varchar(40) not null,sage int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_rgukt |
++-----------------+
+| student         |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | int(11)     | NO   |     | NULL    |       |
+| sname | varchar(40) | NO   |     | NULL    |       |
+| sage  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student add sclass varchar(40);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| sid    | int(11)     | NO   |     | NULL    |       |
+| sname  | varchar(40) | NO   |     | NULL    |       |
+| sage   | int(11)     | YES  |     | NULL    |       |
+| sclass | varchar(40) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql>
+mysql> alter table student modify sname varchar(60);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| sid    | int(11)     | NO   |     | NULL    |       |
+| sname  | varchar(60) | YES  |     | NULL    |       |
+| sage   | int(11)     | YES  |     | NULL    |       |
+| sclass | varchar(40) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> alter table student sname varchar(60) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'varchar(60) not null' at line 1
+mysql> alter table student modify sname varchar(60) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table student modify sage int not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| sid    | int(11)     | NO   |     | NULL    |       |
+| sname  | varchar(60) | NO   |     | NULL    |       |
+| sage   | int(11)     | NO   |     | NULL    |       |
+| sclass | varchar(40) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> alter table student drop column sclass;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | int(11)     | NO   |     | NULL    |       |
+| sname | varchar(60) | NO   |     | NULL    |       |
+| sage  | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student change sname to name varchar(60) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'to name varchar(60) not null' at line 1
+mysql> alter table student change cloumn sname to name varchar(60) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'to name varchar(60) not null' at line 1
+mysql> alter table student change column sname to name varchar(60) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'to name varchar(60) not null' at line 1
+mysql> alter table student change column sname name varchar(60) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(60) | NO   |     | NULL    |       |
+| sage  | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student change column name sname varchar(60) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | int(11)     | NO   |     | NULL    |       |
+| sname | varchar(60) | NO   |     | NULL    |       |
+| sage  | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student add primary key(sid);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | int(11)     | NO   | PRI | NULL    |       |
+| sname | varchar(60) | NO   |     | NULL    |       |
+| sage  | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student modify sid int not null auto_increment;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| sid   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| sname | varchar(60) | NO   |     | NULL    |                |
+| sage  | int(11)     | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.03 sec)
+
+mysql> alter table student add unique(sname);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| sid   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| sname | varchar(60) | NO   | UNI | NULL    |                |
+| sage  | int(11)     | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+mysql> alter table student modify sname varchar(60) not null;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| sid   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| sname | varchar(60) | NO   | UNI | NULL    |                |
+| sage  | int(11)     | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+mysql> insert into student values(1,'a',18);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from student;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   1 | a     |   18 |
++-----+-------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values(2,'b',19);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select sid,sname from student;
++-----+-------+
+| sid | sname |
++-----+-------+
+|   1 | a     |
+|   2 | b     |
++-----+-------+
+2 rows in set (0.00 sec)
+
+mysql> select sname,sage from student where sage=19;
++-------+------+
+| sname | sage |
++-------+------+
+| b     |   19 |
++-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student order by sage;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   1 | a     |   18 |
+|   2 | b     |   19 |
++-----+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student order by sage desc;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   2 | b     |   19 |
+|   1 | a     |   18 |
++-----+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student order by sage;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   1 | a     |   18 |
+|   2 | b     |   19 |
++-----+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> insert into student values(2,'b',19);
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+mysql> insert into student values(3,'c',20),(4,'d',21),(5,'e',22),(6,'f',24);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   1 | a     |   18 |
+|   2 | b     |   19 |
+|   3 | c     |   20 |
+|   4 | d     |   21 |
+|   5 | e     |   22 |
+|   6 | f     |   24 |
++-----+-------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student order by sage desc;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   6 | f     |   24 |
+|   5 | e     |   22 |
+|   4 | d     |   21 |
+|   3 | c     |   20 |
+|   2 | b     |   19 |
+|   1 | a     |   18 |
++-----+-------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student order by sage;
++-----+-------+------+
+| sid | sname | sage |
++-----+-------+------+
+|   1 | a     |   18 |
+|   2 | b     |   19 |
+|   3 | c     |   20 |
+|   4 | d     |   21 |
+|   5 | e     |   22 |
+|   6 | f     |   24 |
++-----+-------+------+
+6 rows in set (0.00 sec)
+
+mysql> alter table student modify sage int not null default 0;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| sid   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| sname | varchar(60) | NO   | UNI | NULL    |                |
+| sage  | int(11)     | NO   |     | 0       |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+mysql> inset into student values(19,'sanjay');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inset into student values(19,'sanjay')' at line 1
+mysql> inset into student values(19,'sanjay','19');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inset into student values(19,'sanjay','19')' at line 1
+mysql> inset into student values(19,'sanjay',19);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inset into student values(19,'sanjay',19)' at line 1
+mysql> insert into student values(19,'s',19);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(386,'sanjay',19);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select* from student;
++-----+--------+------+
+| sid | sname  | sage |
++-----+--------+------+
+|   1 | a      |   18 |
+|   2 | b      |   19 |
+|   3 | c      |   20 |
+|   4 | d      |   21 |
+|   5 | e      |   22 |
+|   6 | f      |   24 |
+|  19 | s      |   19 |
+| 386 | sanjay |   19 |
++-----+--------+------+
+8 rows in set (0.00 sec)
+
+mysql> insert into student values(392,'sa');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> inset into student (sid,sname) values(392,'sanj');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inset into student (sid,sname) values(392,'sanj')' at line 1
+mysql> insert into student (sid,sname) values(392,'sanj');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select* from student;
++-----+--------+------+
+| sid | sname  | sage |
++-----+--------+------+
+|   1 | a      |   18 |
+|   2 | b      |   19 |
+|   3 | c      |   20 |
+|   4 | d      |   21 |
+|   5 | e      |   22 |
+|   6 | f      |   24 |
+|  19 | s      |   19 |
+| 386 | sanjay |   19 |
+| 392 | sanj   |    0 |
++-----+--------+------+
+9 rows in set (0.00 sec)
+
+mysql> insert ignore into student values(1,'kk',12),(35,'power',40);
+Query OK, 1 row affected, 1 warning (0.02 sec)
+Records: 2  Duplicates: 1  Warnings: 1
+
+mysql> select* from student;
++-----+--------+------+
+| sid | sname  | sage |
++-----+--------+------+
+|   1 | a      |   18 |
+|   2 | b      |   19 |
+|   3 | c      |   20 |
+|   4 | d      |   21 |
+|   5 | e      |   22 |
+|   6 | f      |   24 |
+|  19 | s      |   19 |
+|  35 | power  |   40 |
+| 386 | sanjay |   19 |
+| 392 | sanj   |    0 |
++-----+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> show warning;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'warning' at line 1
+mysql> show warnings;
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Level | Code | Message
+                                                     |
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Error | 1064 | You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'warning' at line 1 |
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> create table cse(sno int,name varchar(40),age int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into cse values(35,'king',36),(19,s,20);
+ERROR 1054 (42S22): Unknown column 's' in 'field list'
+mysql> insert into cse values(35,'king',36),(19,'s',20);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into student(sid,sname,sage) select (sno,name,age);
+ERROR 1054 (42S22): Unknown column 'sno' in 'field list'
+mysql> insert into student(sid,sname,sage) select (sno,name,age) from cse;
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> insert into student(sid,sname,sage) select sno,name,age from cse;
+ERROR 1062 (23000): Duplicate entry '35' for key 'PRIMARY'
+mysql> insert ignore into student(sid,sname,sage) select sno,name,age from cse;
+Query OK, 0 rows affected, 2 warnings (0.00 sec)
+Records: 2  Duplicates: 2  Warnings: 2
+
+mysql> select * from student;
++-----+--------+------+
+| sid | sname  | sage |
++-----+--------+------+
+|   1 | a      |   18 |
+|   2 | b      |   19 |
+|   3 | c      |   20 |
+|   4 | d      |   21 |
+|   5 | e      |   22 |
+|   6 | f      |   24 |
+|  19 | s      |   19 |
+|  35 | power  |   40 |
+| 386 | sanjay |   19 |
+| 392 | sanj   |    0 |
++-----+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> delete from student where sid=19;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++-----+--------+------+
+| sid | sname  | sage |
++-----+--------+------+
+|   1 | a      |   18 |
+|   2 | b      |   19 |
+|   3 | c      |   20 |
+|   4 | d      |   21 |
+|   5 | e      |   22 |
+|   6 | f      |   24 |
+|  35 | power  |   40 |
+| 386 | sanjay |   19 |
+| 392 | sanj   |    0 |
++-----+--------+------+
+9 rows in set (0.00 sec)
+
+mysql> truncate table cse;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_rgukt |
++-----------------+
+| cse             |
+| student         |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from cse;
+Empty set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_rgukt |
++-----------------+
+| cse             |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from cse;
+Empty set (0.00 sec)
+
+mysql> desc cse;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sno   | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(40) | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> insert into cse values(1,'sanjay',19),(2,'kumar',20);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from cse;
++------+--------+------+
+| sno  | name   | age  |
++------+--------+------+
+|    1 | sanjay |   19 |
+|    2 | kumar  |   20 |
++------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> update cse set age=39 where sno=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from cse;
++------+--------+------+
+| sno  | name   | age  |
++------+--------+------+
+|    1 | sanjay |   19 |
+|    2 | kumar  |   39 |
++------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> -- Prepared statements
+mysql> -- These are going to accept the input dynamically
+mysql> -- query is like as below
+mysql> prepare stmt1 from 'select * from cse where sno=?';
+Query OK, 0 rows affected (0.00 sec)
+Statement prepared
+
+mysql> set @sno = 1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> execure stmt1 using @sno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'execure stmt1 using @sno' at line 1
+mysql> execute stmt1 using @sno;
++------+--------+------+
+| sno  | name   | age  |
++------+--------+------+
+|    1 | sanjay |   19 |
++------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> set @sno = 2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> execure stmt1 using @sno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'execure stmt1 using @sno' at line 1
+mysql> execute stmt1 using @sno;
++------+-------+------+
+| sno  | name  | age  |
++------+-------+------+
+|    2 | kumar |   39 |
++------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> deallocate prepare stmt1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> execute stmt1 using @sno;
+ERROR 1243 (HY000): Unknown prepared statement handler (stmt1) given to EXECUTE
+mysql> -- once we deallocate we cannot use the prepare statement again and again
+mysql>

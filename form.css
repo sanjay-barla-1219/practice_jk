@@ -1,0 +1,119 @@
+body{
+    height: 4000px;
+    width: 90%;
+    background-color: rgb(0, 0, 93);
+    color: rgb(0, 0, 0);
+}
+
+hgroup{
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 15px;
+    margin-right: 30px;
+    border-right: 10px solid ;
+    color: white;
+}
+h1{
+    font-size: 1.96rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.main-head{
+    text-align: center;
+    padding: 0px;
+    top: 0px;
+    font-weight: bold;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.row{
+    margin-right: 40px;
+    margin-top: 50px;
+    clear: both;
+}
+
+.form-tag{
+    background-color: white;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 100%;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+/* .row .text{
+    padding: 5px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border-color: black;
+}
+
+.row .text:hover{
+    border-color: rgb(255, 255, 0);
+    border-radius: 3px;
+}
+.row .pass{
+    padding: 5px;
+    margin-right: 40px;
+}
+
+.row label{
+    margin-right: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+} */
+
+@media(max-width:400px){
+    .row{
+        padding: 5px;
+        margin-right: 40px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .row label{
+        margin-left: 5px;
+        margin-bottom: 20px;
+    }
+}
+
+fieldset{
+    border: 3px solid black;
+}
+
+legend{
+    align-items: center;
+    color: green;
+}
+
+.email{
+    width: 100%;
+    border: 2px solid black;
+}
+
+.email:valid{
+    color: green;
+}
+
+.email:invalid{
+    color: red;
+}
+
+.text{
+    width: 40%;
+    float: left;
+    border: 2px solid black;
+}
+.pass{
+    width: 40%;
+    float: right;
+    border: 2px solid black;
+}
+
+.gender{
+    align-items: center;
+    justify-content: center;
+}

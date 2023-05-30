@@ -1,0 +1,11 @@
+DOM Object:
+
+Core Dom -> ANy kind of document
+
+XML DOm -> doncuments which are related to only XML
+HTML DOM -> Documents i.e; Webpage
+
+window object is the parent for document object	
+
+
+isNaN() => is a function to decide whether it is a number or not.

@@ -1,0 +1,147 @@
+body{
+    height: 4000px;
+    width: 90%;
+    background-color: rgb(0, 0, 93);
+    color: white;
+}
+
+hgroup{
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 15px;
+    margin-right: 30px;
+    border-right: 10px solid ;
+}
+h1{
+    font-size: 1.96rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+h3{
+    font-size: 1.16rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+
+
+
+/* footer */
+
+#main-footer{
+    background-color: white;
+    color: black;
+    width: 98%;
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#main-footer p{
+    margin-top: 0px;
+    padding: 10px;
+    display: inline;
+}
+
+div.foot{
+    float: right;
+    margin: 5px;
+    display: inline;
+}
+
+
+/* Nav */
+
+
+.nav-links{
+    background-color: white;
+    height: 30px;
+    width: 99%;
+}
+
+.nav-links a{
+    color: black;
+    text-decoration: none;
+    font-style: bold;
+    padding: 10px 25px;
+    border: 2px solid;
+    margin-left: 10px;
+    background-color: gray;
+    vertical-align: center;
+    padding: 2px;
+}
+
+a:link{
+    color: blue;
+}
+a:visited{
+    color: rgb(95, 0, 0);
+    background-color: blueviolet;
+}
+a:hover{
+    color: white;
+    background-color: black;
+}
+
+/* Search bar */
+
+.search{
+    padding: 5px;
+    margin-right: 0px;
+    float: right;
+}
+
+.side-body{
+    float: left;
+    height: 100%;
+    width: 18%;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: white;
+    color: black;
+}
+
+main .main-body{
+    float: right;
+    height: 100%;
+    width: 80%;
+    margin-right: 0px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+h4{
+    margin-left: 10px;
+    font-size: 20px;
+}
+li{
+    list-style-type: none;
+    text-decoration: underline;
+}
+
+.mainhead{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.main-sub{
+    border-top: 1px solid black;
+    margin: 2px;
+    height: 100%;
+    width: 100%;
+}
+
+.mainpara{
+    text-align: justify;
+    padding: 10px;
+    text-indent: 40px;
+}
+
+.mainpara::first-letter{
+    font-size: 3rem;
+    line-height: 0.7;
+    padding-top: 4px;
+}

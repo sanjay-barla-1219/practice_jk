@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Object</title>
+    <script>
+    //     function cse(){
+    //         var col = ['yellow','blue','cyan','black']
+    //     var j = document.getElementsByTagName("li");
+    //     for(c of j){
+    //         // console.log(c.innerText);
+    //         c.style.backgroundColor = col[]
+    //     }  // c.style.backgroundColor = "red";
+          
+    // }
+    function cse(){
+        var col = ['yellow','blue','cyan','black']
+        var j = document.getElementsByTagName("li");
+        for(c in j){
+            // console.log(c.innerText);
+            j[c].style.backgroundColor = col[c];
+        }  // c.style.backgroundColor = "red";
+          
+    }
+    </script>
+</head>
+<body id="body">
+    <!-- Document Object Manupulation -->
+    <h1>My Heading</h1>
+    <a href="sanjay.com" id="anchor1" class="l1"> My Link</a>
+    <a href="sanjay.com" id="anchor2" class="l2"> My Link</a>
+    <b id="bold">RGUKT Srikakulam<span style="display: none;">8688259303</span></b>
+    <ul id="lists" class="l2">
+        <li>CSE</li>
+        <li>ECE</li>
+        <li>MECH</li>
+    </ul>
+    <hr>
+    <button onclick="cse()">Click Here</button>
+</body>
+</html>
